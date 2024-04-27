@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group>
+        <item
+            android:id="@+id/homePage"
+            android:icon="@drawable/icon_home"
+            android:title="Главное" />
+        <item
+            android:id="@+id/searchPage"
+            android:icon="@drawable/icon_search"
+            android:title="Поиск" />
+        <item
+            android:id="@+id/favouritesPage"
+            android:icon="@drawable/icon_favorite_not_selected"
+            android:title="Избранные" />
+        <item
+            android:id="@+id/settingsPage"
+            android:icon="@drawable/icon_settings_filled"
+            android:title="Справка" />
+    </group>
+</menu>

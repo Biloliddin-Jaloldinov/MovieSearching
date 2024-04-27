@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/id_home"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="uz.jbzprojects.moviesearching.presentation.ui.HomeScreen"
+        android:label="Home"
+        tools:layout="@layout/screen_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_infoScreen"
+            app:destination="@id/InfoScreen" >
+            <argument
+                android:name="movie_id"
+                android:defaultValue="1096197" />
+        </action>
+        <action
+            android:id="@+id/action_homeFragment_to_favouritesFragment"
+            app:destination="@id/favouritesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favouritesFragment"
+        android:name="uz.jbzprojects.moviesearching.presentation.ui.FavouritesScreen"
+        android:label="Favourites"
+        tools:layout="@layout/item_favourites_movie" >
+        <action
+            android:id="@+id/action_favouritesFragment_to_infoScreen"
+            app:destination="@id/InfoScreen" >
+            <argument
+                android:name="movie_id"
+                android:defaultValue="1096197" />
+        </action>
+        <action
+            android:id="@+id/action_favouritesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="uz.jbzprojects.moviesearching.presentation.ui.SearchScreen"
+        android:label="Search"
+        tools:layout="@layout/screen_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_infoScreen"
+            app:destination="@id/InfoScreen" >
+            <argument
+                android:name="movie_id"
+                android:defaultValue="1096197" />
+        </action>
+        <action
+            android:id="@+id/action_searchFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/InfoScreen"
+        android:name="uz.jbzprojects.moviesearching.presentation.ui.MovieInfoScreen"
+        android:label="InfoScreen"
+        tools:layout="@layout/screen_movie_info">
+        <argument
+            android:name="movie_id"
+            app:argType="integer" />
+    </fragment>
+</navigation>

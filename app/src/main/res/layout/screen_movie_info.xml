@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/infoScreeUI"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageMovie"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="56dp"
+            android:layout_height="450dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/img"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="The Glory"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageMovie" />
+
+        <TextView
+            android:id="@+id/textDateAndSeason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2022 | 18+ | 1 Season | K-Drama"
+            android:textColor="#969696"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="@id/textTitle"
+            app:layout_constraintTop_toBottomOf="@id/textTitle" />
+
+        <RatingBar
+            android:id="@+id/ratingBarMovie"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:numStars="5"
+            android:progressBackgroundTint="#fff"
+            android:progressTint="#FFC107"
+            android:rating="3"
+            app:layout_constraintLeft_toLeftOf="@id/textTitle"
+            app:layout_constraintTop_toBottomOf="@id/textDateAndSeason" />
+
+        <TextView
+            android:id="@+id/textRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="4,6"
+            android:textColor="#F3F3F3"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/ratingBarMovie"
+            app:layout_constraintLeft_toRightOf="@id/ratingBarMovie"
+            app:layout_constraintTop_toTopOf="@id/ratingBarMovie" />
+
+        <ImageView
+            android:id="@+id/btnFavoutite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:padding="8dp"
+            android:src="@drawable/icon_favorite_not_selected"
+            app:layout_constraintBottom_toBottomOf="@id/ratingBarMovie"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textTitle" />
+
+        <TextView
+            android:id="@+id/textMovieDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:justificationMode="inter_word"
+            android:text="A young woman, bullied to the point of deciding to drop out of school, plans the best way to get revenge. After becoming a primary school teacher, she takes in the son of the man who tormented her the most to enact her vengeance."
+            android:textColor="#969696"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="@id/textTitle"
+            app:layout_constraintTop_toBottomOf="@id/ratingBarMovie" />
+
+        <TextView
+            android:id="@+id/textGenres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="Genre : Revenge, Psychological Thriller"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="@id/textTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textMovieDescription" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerMovieInfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <include layout="@layout/shimmer_movie_info" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

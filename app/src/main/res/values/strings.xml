@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Movie Searching</string>
+    <string name="api_access_token">eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YjlkN2RjZmViM2JlNTI4OWJkNTA5Yzk0NDJkNWVlMiIsInN1YiI6IjY2Mjc5NzFlMmUyYjJjMDE2MzY3OGI4YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.VYh31FhphT57sfQT--FRH9JBN3kb8fWn6WJEtgwzzXI</string>
+</resources>

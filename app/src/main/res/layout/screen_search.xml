@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/txtSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="Search"
+        android:textColor="#F3F3F3"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_search"
+            android:hint="Введите запрос"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtSearch"/>
+        &lt;!&ndash; app:searchIcon="@drawable/icon_search"
+    app:closeIcon="@drawable/ic_close"&ndash;&gt;-->
+
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_search"
+        android:gravity="center"
+        android:inputType="text"
+        app:defaultQueryHint="Введите название фильма"
+        app:iconifiedByDefault="false"
+        app:layout_constraintTop_toBottomOf="@id/txtSearch"
+        app:queryBackground="@android:color/transparent"
+        app:searchIcon="@drawable/icon_search"
+        app:theme="@style/AppSearchView" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSearch"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="8dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:spanCount="2"
+        tools:itemCount="8"
+        tools:listitem="@layout/item_movie" />
+
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerMovies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-16dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/searchView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/shimmer_item_main_movies" />
+
+            <include layout="@layout/shimmer_item_main_movies" />
+
+            <include layout="@layout/shimmer_item_main_movies" />
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
