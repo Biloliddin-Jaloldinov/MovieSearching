@@ -30,7 +30,7 @@ class HomeScreen : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("TTT", "Main Screen")
+        viewModel.getMovies()
     }
 
     override fun onCreateView(
