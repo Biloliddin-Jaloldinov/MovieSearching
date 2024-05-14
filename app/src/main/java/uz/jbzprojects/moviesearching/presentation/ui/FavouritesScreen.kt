@@ -8,6 +8,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
+import uz.jbzprojects.moviesearching.R
 import uz.jbzprojects.moviesearching.databinding.ScreenFavouritesBinding
 import uz.jbzprojects.moviesearching.presentation.adapter.FavouritesAdapter
 import uz.jbzprojects.moviesearching.presentation.viewmodel.FavouritesViewModel
@@ -21,7 +24,6 @@ class FavouritesScreen : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.getMovies()
     }
 
     override fun onCreateView(
@@ -33,14 +35,13 @@ class FavouritesScreen : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        startShimmerAnimation()
         initButtons()
         setObservers()
     }
 
     private fun setObservers() {
-        viewModel.moviesLiveData.observe(this, productsObserver)
-        viewModel.error.observe(this, errorObserver)
+        viewModel.moviesLiveData.observe(viewLifecycleOwner, productsObserver)
+        viewModel.error.observe(viewLifecycleOwner, errorObserver)
     }
 
     private fun initButtons() {
@@ -48,16 +49,14 @@ class FavouritesScreen : Fragment() {
         binding.rvFavourites.adapter = adapter
 
         adapter.setItemClickListener { moiveID ->
-            val bundle = Bundle()
-            bundle.putInt("MOVIE_ID", moiveID)
-            val movieScreenFragment = MovieInfoScreen.newInstance()
-            movieScreenFragment.arguments = bundle
-            Toast.makeText(context, "Clicked $moiveID", Toast.LENGTH_SHORT).show()
+            val navController = Navigation.findNavController(requireActivity(), R.id.mainFragmentContainerView)
+            val action = FavouritesScreenDirections.actionFavouritesFragmentToInfoScreen(moiveID)
+            navController.navigate(action)
+        }
 
-            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(this.id, movieScreenFragment)
-            transaction.addToBackStack(null)  // Добавляем в стек, чтобы можно было вернуться
-            transaction.commit()
+        binding.btnBack.setOnClickListener {
+            val navController = Navigation.findNavController(requireActivity(), R.id.mainFragmentContainerView)
+            navController.popBackStack()
         }
 
     }
@@ -68,7 +67,6 @@ class FavouritesScreen : Fragment() {
     }
 
     private val productsObserver = Observer<List<FavouriteMovieEntity>> { movies ->
-        stopShimmerAnimation()
         updateUi(movies)
     }
 
@@ -77,19 +75,21 @@ class FavouritesScreen : Fragment() {
         adapter.submitList(movies)
     }
 
-    private fun stopShimmerAnimation() {
-  /*      binding.shimmerMovies.stopShimmer()
-        binding.shimmerMovies.visibility = View.GONE
-        binding.rv.visibility = View.VISIBLE*/
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getMovies()
+        val navHost = parentFragment as NavHostFragment
+        val parent = navHost.parentFragment as MainScreen
+        parent.bottomNavigation.visibility = View.GONE
     }
+    override fun onDestroy() {
+        super.onDestroy()
+        val navHost = parentFragment as NavHostFragment
+        val parent = navHost.parentFragment as MainScreen
+        parent.bottomNavigation.visibility = View.VISIBLE
 
-    private fun startShimmerAnimation() {
-       /* binding.shimmerMovies.visibility = View.VISIBLE
-        binding.shimmerMovies.startShimmer()
-        binding.rv.visibility = View.GONE*/
     }
-
-
     companion object {
         @JvmStatic
         fun newInstance() = FavouritesScreen()

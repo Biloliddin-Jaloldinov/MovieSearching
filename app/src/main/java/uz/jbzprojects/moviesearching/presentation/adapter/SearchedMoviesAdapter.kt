@@ -20,6 +20,7 @@ class SearchedMoviesAdapter : ListAdapter<SearchedMovies, SearchedMoviesAdapter.
         onItemClickListener = block
     }
 
+
     inner class Holder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = ItemMovieBinding.bind(view)
 

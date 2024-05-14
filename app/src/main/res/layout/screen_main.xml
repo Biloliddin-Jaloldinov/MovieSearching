@@ -20,7 +20,7 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="#121212"
+        android:background="#202020"
         app:itemHorizontalTranslationEnabled="false"
         app:itemIconTint="#E4164D"
         app:itemActiveIndicatorStyle="@android:color/transparent"

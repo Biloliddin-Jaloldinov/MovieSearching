@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="backgroundColor">#121212</color>
+    <color name="itemsColor">#E4164D</color>
+
+    <color name="radio_button_checked_color">#E4164D</color>
+    <color name="radio_button_unchecked_color">#9E9E9E</color>
+
 </resources>

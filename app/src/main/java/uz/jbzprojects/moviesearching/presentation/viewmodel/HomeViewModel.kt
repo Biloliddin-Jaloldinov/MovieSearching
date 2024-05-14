@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import uz.jbzprojects.moviesearching.network.data.maindata.MovieData
 
 interface HomeViewModel {
-    val bundleFromFragmentBToFragmentA : LiveData<Bundle>
     val error: LiveData<String>
     val moviesLiveData: LiveData<List<MovieData>>
 

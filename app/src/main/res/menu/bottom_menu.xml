@@ -4,19 +4,19 @@
     tools:showIn="navigation_view">
     <group>
         <item
-            android:id="@+id/homePage"
+            android:id="@+id/homeScreen"
             android:icon="@drawable/icon_home"
             android:title="Главное" />
         <item
-            android:id="@+id/searchPage"
+            android:id="@+id/searchScreen"
             android:icon="@drawable/icon_search"
             android:title="Поиск" />
         <item
-            android:id="@+id/favouritesPage"
-            android:icon="@drawable/icon_favorite_not_selected"
-            android:title="Избранные" />
+            android:id="@+id/genresScreen"
+            android:icon="@drawable/icon_categories"
+            android:title="Жанры" />
         <item
-            android:id="@+id/settingsPage"
+            android:id="@+id/settingsScreen"
             android:icon="@drawable/icon_settings_filled"
             android:title="Справка" />
     </group>

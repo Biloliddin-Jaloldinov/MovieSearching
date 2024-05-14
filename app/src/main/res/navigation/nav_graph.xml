@@ -3,62 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/id_home"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/homeScreen">
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/homeScreen"
         android:name="uz.jbzprojects.moviesearching.presentation.ui.HomeScreen"
         android:label="Home"
-        tools:layout="@layout/screen_home" >
+        tools:layout="@layout/screen_home">
         <action
             android:id="@+id/action_homeFragment_to_infoScreen"
-            app:destination="@id/InfoScreen" >
+            app:destination="@id/InfoScreen">
             <argument
                 android:name="movie_id"
                 android:defaultValue="1096197" />
         </action>
-        <action
-            android:id="@+id/action_homeFragment_to_favouritesFragment"
-            app:destination="@id/favouritesFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/favouritesFragment"
+        android:id="@+id/favouritesScreen"
         android:name="uz.jbzprojects.moviesearching.presentation.ui.FavouritesScreen"
         android:label="Favourites"
-        tools:layout="@layout/item_favourites_movie" >
+        tools:layout="@layout/screen_favourites">
         <action
             android:id="@+id/action_favouritesFragment_to_infoScreen"
-            app:destination="@id/InfoScreen" >
+            app:destination="@id/InfoScreen">
             <argument
                 android:name="movie_id"
                 android:defaultValue="1096197" />
         </action>
-        <action
-            android:id="@+id/action_favouritesFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-        <action
-            android:id="@+id/action_favouritesFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/searchFragment"
+        android:id="@+id/searchScreen"
         android:name="uz.jbzprojects.moviesearching.presentation.ui.SearchScreen"
         android:label="Search"
-        tools:layout="@layout/screen_search" >
+        tools:layout="@layout/screen_search">
         <action
             android:id="@+id/action_searchFragment_to_infoScreen"
-            app:destination="@id/InfoScreen" >
+            app:destination="@id/InfoScreen">
             <argument
                 android:name="movie_id"
                 android:defaultValue="1096197" />
         </action>
-        <action
-            android:id="@+id/action_searchFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/InfoScreen"
@@ -69,4 +54,100 @@
             android:name="movie_id"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/logInScreen"
+        android:name="uz.jbzprojects.moviesearching.presentation.ui.LogInScreen"
+        android:label="LogInScreen"
+        tools:layout="@layout/screen_login">
+        <action
+            android:id="@+id/action_logInScreen_to_signUpScreen"
+            app:destination="@id/signUpScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpScreen"
+        android:name="uz.jbzprojects.moviesearching.presentation.ui.SignUpScreen"
+        android:label="SignUpScreen"
+        tools:layout="@layout/screen_signup">
+        <action
+            android:id="@+id/action_signUpScreen_to_logInScreen"
+            app:destination="@id/logInScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsScreen"
+        android:name="uz.jbzprojects.moviesearching.presentation.ui.SettingsScreen"
+        android:label="SettingsScreen"
+        tools:layout="@layout/screen_settings">
+        <action
+            android:id="@+id/action_settingsScreen_to_logInScreen"
+            app:destination="@id/logInScreen" />
+        <action
+            android:id="@+id/action_settingsScreen_to_favouritesScreen"
+            app:destination="@id/favouritesScreen" />
+        <action
+            android:id="@+id/action_settingsScreen_to_watchLaterScreen"
+            app:destination="@id/watchLaterScreen" />
+        <action
+            android:id="@+id/action_settingsScreen_to_userReviewsScreen"
+            app:destination="@id/userReviewsScreen" />
+        <action
+            android:id="@+id/action_settingsScreen_to_watchedHistoryScreen"
+            app:destination="@id/watchedHistoryScreen" />
+        <action
+            android:id="@+id/action_settingsScreen_to_userRequestsToAddMovieScreen"
+            app:destination="@id/userRequestsToAddMovieScreen" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/screen_genres"
+        android:id="@+id/genresScreen"
+        android:name="uz.jbzprojects.moviesearching.presentation.ui.GenresScreen"
+        android:label="GenresScreen" >
+        <action
+            android:id="@+id/action_genresScreen_to_moviesByGenreScreen"
+            app:destination="@id/moviesByGenreScreen" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/screen_movies_by_genre"
+        android:id="@+id/moviesByGenreScreen"
+        android:name="uz.jbzprojects.moviesearching.presentation.ui.MoviesByGenreScreen"
+        android:label="MoviesByGenreScreen" >
+        <argument android:name="genreID"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_moviesByGenreScreen_to_InfoScreen"
+            app:destination="@id/InfoScreen" />
+        <argument
+            android:name="genreName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/screen_watch_later"
+        android:id="@+id/watchLaterScreen"
+        android:name="uz.jbzprojects.moviesearching.presentation.ui.WatchLaterScreen"
+        android:label="WatchLaterScreen" >
+        <action
+            android:id="@+id/action_watchLaterScreen_to_InfoScreen"
+            app:destination="@id/InfoScreen" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/screen_user_reviews"
+        android:id="@+id/userReviewsScreen"
+        android:name="uz.jbzprojects.moviesearching.presentation.ui.UserReviewsScreen"
+        android:label="UserReviewsScreen" >
+        <action
+            android:id="@+id/action_userReviewsScreen_to_InfoScreen"
+            app:destination="@id/InfoScreen" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/screen_watched_history"
+        android:id="@+id/watchedHistoryScreen"
+        android:name="uz.jbzprojects.moviesearching.presentation.ui.WatchedHistoryScreen"
+        android:label="WatchedHistoryScreen" >
+        <action
+            android:id="@+id/action_watchedHistoryScreen_to_InfoScreen"
+            app:destination="@id/InfoScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/userRequestsToAddMovieScreen"
+        android:name="uz.jbzprojects.moviesearching.presentation.ui.UserRequestsToAddMovieScreen"
+        android:label="UserRequestsToAddMovieScreen" />
 </navigation>

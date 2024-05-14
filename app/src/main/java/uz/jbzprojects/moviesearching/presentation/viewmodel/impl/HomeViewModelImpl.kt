@@ -13,9 +13,7 @@ import uz.jbzprojects.moviesearching.network.data.maindata.MovieData
 import uz.jbzprojects.moviesearching.presentation.viewmodel.HomeViewModel
 import uz.jbzprojects.moviesearching.utils.isConnected
 
-class HomeViewModelImpl() : HomeViewModel, ViewModel() {
-
-    override val bundleFromFragmentBToFragmentA = MutableLiveData<Bundle>()
+class HomeViewModelImpl : HomeViewModel, ViewModel() {
     override val moviesLiveData: LiveData<List<MovieData>> get() = _moviesOffers
 
     private val _moviesOffers = MutableLiveData<List<MovieData>>()

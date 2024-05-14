@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="AppSearchView" parent="Widget.AppCompat.SearchView" >
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppSearchView" parent="Widget.AppCompat.SearchView">
         <!-- Text Size --><!--
         <item name="android:textSize">@dimen/textSizePrimary</item>-->
         <!-- Query Text Color -->
@@ -10,4 +11,10 @@
         <!-- Icon Color -->
         <item name="android:tint">@color/white</item>
     </style>
+
+    <style name="RadioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="buttonTint">@color/itemsColor</item>
+    </style>
+
 </resources>

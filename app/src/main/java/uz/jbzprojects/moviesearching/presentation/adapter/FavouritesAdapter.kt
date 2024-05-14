@@ -17,13 +17,19 @@ class FavouritesAdapter : ListAdapter<FavouriteMovieEntity, FavouritesAdapter.Ho
     fun setItemClickListener(block: (Int) -> Unit) {
         onItemClickListener = block
     }
+
     inner class Holder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = ItemFavouritesMovieBinding.bind(view)
 
-        fun bind(item: FavouriteMovieEntity) = with(binding) {
 
-            textMovieName.text = item.title
+        fun bind(item: FavouriteMovieEntity) = with(binding) {
+            if (item.title.length > 25) {
+                textMovieName.text = item.title.substring(0, 25) + " ..."
+            } else {
+                textMovieName.text = item.title
+            }
             textMovieDate.text = item.date
+            imageIsFavourite.setImageResource(R.drawable.icon_favorite_selected)
             Picasso.get().load("https://image.tmdb.org/t/p/w500${item.image}").into(imageMovie)
 
             itemView.setOnClickListener {

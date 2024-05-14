@@ -1,118 +1,386 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#121212"
     android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/infoScreeUI"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageMovie"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginHorizontal="56dp"
-            android:layout_height="450dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            android:src="@drawable/img"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:text="The Glory"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageMovie" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/infoScreeUI"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textDateAndSeason"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2022 | 18+ | 1 Season | K-Drama"
-            android:textColor="#969696"
-            android:textSize="14sp"
-            app:layout_constraintLeft_toLeftOf="@id/textTitle"
-            app:layout_constraintTop_toBottomOf="@id/textTitle" />
+                <ImageView
+                    android:id="@+id/imageMovie"
+                    android:layout_width="match_parent"
+                    android:layout_height="450dp"
+                    android:layout_marginHorizontal="56dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <RatingBar
-            android:id="@+id/ratingBarMovie"
-            style="?android:attr/ratingBarStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:numStars="5"
-            android:progressBackgroundTint="#fff"
-            android:progressTint="#FFC107"
-            android:rating="3"
-            app:layout_constraintLeft_toLeftOf="@id/textTitle"
-            app:layout_constraintTop_toBottomOf="@id/textDateAndSeason" />
+                <TextView
+                    android:id="@+id/textTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="The Glory"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageMovie" />
 
-        <TextView
-            android:id="@+id/textRating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:text="4,6"
-            android:textColor="#F3F3F3"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/ratingBarMovie"
-            app:layout_constraintLeft_toRightOf="@id/ratingBarMovie"
-            app:layout_constraintTop_toTopOf="@id/ratingBarMovie" />
+                <TextView
+                    android:id="@+id/textDateAndSeason"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2022 | 18+ | 1 Season | K-Drama"
+                    android:textColor="#969696"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="@id/textTitle"
+                    app:layout_constraintTop_toBottomOf="@id/textTitle" />
 
-        <ImageView
-            android:id="@+id/btnFavoutite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:padding="8dp"
-            android:src="@drawable/icon_favorite_not_selected"
-            app:layout_constraintBottom_toBottomOf="@id/ratingBarMovie"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textTitle" />
+                <RatingBar
+                    android:id="@+id/ratingBarMovie"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:numStars="5"
+                    android:progressBackgroundTint="#fff"
+                    android:progressTint="#FFC107"
+                    android:rating="3"
+                    app:layout_constraintLeft_toLeftOf="@id/textTitle"
+                    app:layout_constraintTop_toBottomOf="@id/textDateAndSeason" />
 
-        <TextView
-            android:id="@+id/textMovieDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:justificationMode="inter_word"
-            android:text="A young woman, bullied to the point of deciding to drop out of school, plans the best way to get revenge. After becoming a primary school teacher, she takes in the son of the man who tormented her the most to enact her vengeance."
-            android:textColor="#969696"
-            android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="@id/textTitle"
-            app:layout_constraintTop_toBottomOf="@id/ratingBarMovie" />
+                <TextView
+                    android:id="@+id/textRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="4,6"
+                    android:textColor="#F3F3F3"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/ratingBarMovie"
+                    app:layout_constraintLeft_toRightOf="@id/ratingBarMovie"
+                    app:layout_constraintTop_toTopOf="@id/ratingBarMovie" />
 
-        <TextView
-            android:id="@+id/textGenres"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:justificationMode="inter_word"
-            android:text="Genre : Revenge, Psychological Thriller"
-            android:textColor="#969696"
-            android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="@id/textTitle"
-            app:layout_constraintTop_toBottomOf="@+id/textMovieDescription" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/btnWatchLater"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:padding="8dp"
+                    android:src="@drawable/icon_watch_later_not_selected"
+                    app:layout_constraintBottom_toBottomOf="@id/ratingBarMovie"
+                    app:layout_constraintRight_toLeftOf="@id/btnFavourite"
+                    app:layout_constraintTop_toBottomOf="@id/textTitle" />
 
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmerMovieInfo"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
+                <ImageView
+                    android:id="@+id/btnFavourite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:padding="8dp"
+                    android:src="@drawable/icon_favorite_not_selected"
+                    app:layout_constraintBottom_toBottomOf="@id/ratingBarMovie"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textTitle" />
 
-        <include layout="@layout/shimmer_movie_info" />
+                <TextView
+                    android:id="@+id/textMovieDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:justificationMode="inter_word"
+                    android:text="A young woman, bullied to the point of deciding to drop out of school, plans the best way to get revenge. After becoming a primary school teacher, she takes in the son of the man who tormented her the most to enact her vengeance."
+                    android:textColor="#969696"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/textTitle"
+                    app:layout_constraintTop_toBottomOf="@id/ratingBarMovie" />
 
-    </com.facebook.shimmer.ShimmerFrameLayout>
+                <TextView
+                    android:id="@+id/textGenres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:text="Genre : Revenge, Psychological Thriller"
+                    android:textColor="#E3E3E3"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/textTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/textMovieDescription" />
+
+                <TextView
+                    android:id="@+id/textProductionCountry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:text="Страна производства : Japan"
+                    android:textColor="#969696"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/textTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/textGenres" />
+
+
+                <TextView
+                    android:id="@+id/textSpokenLanguage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:text="Язык озвучки : Revenge, Psychological Thriller"
+                    android:textColor="#E3E3E3"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/textTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/textProductionCountry" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/btnToBrowser"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_margin="8dp"
+                    android:foreground="?android:selectableItemBackground"
+                    app:layout_constraintTop_toBottomOf="@id/textSpokenLanguage">
+
+                    <ImageView
+                        android:id="@+id/imageForPlayer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#80737373"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_play"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/btnToBrowser">
+
+
+                    <TextView
+                        android:id="@+id/textAddReview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Мой комментарий"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintTop_toBottomOf="@id/btnToBrowser" />
+
+                    <RatingBar
+                        android:id="@+id/addRatingForMovie"
+                        style="?android:attr/ratingBarStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="8dp"
+                        android:numStars="5"
+                        android:progressBackgroundTint="#919191"
+                        android:progressTint="#FFC107"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textAddReview" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/userReview"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="8dp"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="#1B1B1B"
+                        app:cardCornerRadius="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/textAddReview">
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingBottom="4dp">
+
+                            <ImageView
+                                android:id="@+id/imgUser"
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_person1"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/textUerName"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="8dp"
+                                android:maxLength="18"
+                                android:maxLines="1"
+                                android:text="WWWWWWWWWWWWWWWWWWWWWWWW"
+                                android:textColor="@color/white"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="@id/imgUser"
+                                app:layout_constraintLeft_toRightOf="@id/imgUser"
+                                app:layout_constraintRight_toLeftOf="@id/textDate"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/textDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:text="-"
+                                android:textColor="#FFFFFF"
+                                app:layout_constraintBottom_toBottomOf="@id/imgUser"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="@id/imgUser" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:background="#3A3A3A"
+                                android:padding="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/imgUser">
+
+                                <ImageView
+                                    android:id="@+id/imageRating"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:padding="8dp"
+                                    android:src="@drawable/icon_rating"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:tint="#FFC107" />
+
+
+                                <TextView
+                                    android:id="@+id/textRatingForUser"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:text="4,0"
+                                    android:textColor="#FFC107"
+                                    android:textSize="18sp"
+                                    app:layout_constraintBottom_toBottomOf="@id/imageRating"
+                                    app:layout_constraintLeft_toRightOf="@id/imageRating"
+                                    app:layout_constraintTop_toTopOf="@id/imageRating" />
+
+
+                                <TextView
+                                    android:id="@+id/textComment"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text=""
+                                    android:textColor="@color/white"
+                                    android:textSize="14sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/imageRating" />
+
+                                <ImageView
+                                    android:id="@+id/btnEditReview"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="8dp"
+                                    android:padding="8dp"
+                                    android:src="@drawable/icon_edit"
+                                    app:layout_constraintRight_toLeftOf="@id/btnDeleteReview"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:tint="@color/white" />
+
+                                <ImageView
+                                    android:id="@+id/btnDeleteReview"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="8dp"
+                                    android:src="@drawable/icon_delete"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:tint="@color/white" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/textReviewTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Отзывы фильма"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintTop_toBottomOf="@id/textAddReview" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvReviews"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginBottom="4dp"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintTop_toBottomOf="@+id/textReviewTitle"
+                        tools:itemCount="3"
+                        tools:listitem="@layout/item_review" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerMovieInfo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <include layout="@layout/shimmer_movie_info" />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:src="@drawable/icon_btn_back"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

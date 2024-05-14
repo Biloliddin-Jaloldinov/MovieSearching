@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.coroutines.launch
 import uz.jbzprojects.moviesearching.R
@@ -23,9 +24,7 @@ import uz.jbzprojects.moviesearching.presentation.viewmodel.impl.HomeViewModelIm
 
 class HomeScreen : Fragment() {
     private lateinit var binding: ScreenHomeBinding
-    private val viewModel: HomeViewModel by lazy {
-        ViewModelProvider(this).get(HomeViewModelImpl::class.java)
-    }
+    private val viewModel: HomeViewModel by viewModels<HomeViewModelImpl>()
     private lateinit var adapter: HomeAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +35,6 @@ class HomeScreen : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        Log.d("TTT", "onCreateView(")
         binding = ScreenHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -63,6 +61,7 @@ class HomeScreen : Fragment() {
             val navController = Navigation.findNavController(requireActivity(), R.id.mainFragmentContainerView)
             val action = HomeScreenDirections.actionHomeFragmentToInfoScreen(moiveID)
             navController.navigate(action)
+
         }
 
     }
@@ -95,11 +94,8 @@ class HomeScreen : Fragment() {
         binding.shimmerMovies.startShimmer()
         binding.rv.visibility = View.GONE
     }
-
-
     companion object {
         @JvmStatic
         fun newInstance() = HomeScreen()
     }
-
 }

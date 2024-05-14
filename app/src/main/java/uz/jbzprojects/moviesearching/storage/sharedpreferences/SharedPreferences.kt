@@ -16,11 +16,29 @@ class AppPreferences private constructor() {
             return instance
         }
     }
-    fun setLogin(login: String) {
-        pref.edit().putString("LOGIN", login).apply()
+
+    fun setLogin(loginID: Int) {
+        pref.edit().putInt("LOGIN", loginID).apply()
     }
 
-    fun getLogin(): String {
-        return pref.getString("LOGIN", "LOGIN")!!
+    fun getLogin(): Int {
+        return pref.getInt("LOGIN", -1)
     }
+
+    fun setMovieRealisedYear(year: String) {
+        pref.edit().putString("REALISED_YEAR", year).apply()
+    }
+
+    fun getMovieRealisedYear(): String {
+        return pref.getString("REALISED_YEAR", "").toString()
+    }
+
+    fun setSearchingLanguage(language: String) {
+        pref.edit().putString("LANGUAGE", language).apply()
+    }
+
+    fun getSearchingLanguage(): String {
+        return pref.getString("LANGUAGE", "ru-RU").toString()
+    }
+
 }

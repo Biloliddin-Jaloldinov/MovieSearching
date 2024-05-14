@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "favourite_movies", indices = [Index(value = ["movieID"], unique = true)])
+@Entity(tableName = "favourite_movies")
 data class FavouriteMovieEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
@@ -15,5 +15,6 @@ data class FavouriteMovieEntity(
     val isFavourite: Boolean,
     val image: String,
     val title: String,
-    val date: String
+    val date: String,
+    var userID: Int
 )
